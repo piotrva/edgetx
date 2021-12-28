@@ -338,6 +338,11 @@ char * getSwitchName(char * dest, swsrc_t idx)
 #endif
       else
         *dest++ = 'A'+swinfo.quot;
+#elif defined(RADIO_TX12) || defined(RADIO_T8)
+    if (swinfo.quot < 6)
+        *dest++ = 'A' + swinfo.quot;
+    else
+        *dest++ = 'A' + swinfo.quot + 2;
 #else
     *dest++ = 'A' + swinfo.quot;
 #endif
